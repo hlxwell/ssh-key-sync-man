@@ -27,12 +27,12 @@ begin
   end
 
   # check group option
-  raise "please provide group name: deploy_sshkey myasics." if (group = options[:group]).nil?
+  raise "Please provide group name." if (group = options[:group]).nil?
 
   SshKeyMan::PublicKeyCombiner.combine group
   SshKeyMan::Uploader.upload_all_public_keys group
   puts "Done!"
 rescue => e
-  puts "Got an error:"
   puts e.to_s
+  puts "Check help: ssh-key-sync-man --help"
 end
