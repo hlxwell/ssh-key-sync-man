@@ -1,9 +1,8 @@
 #!/usr/bin/env ruby
 
-$: << "./lib"
-require 'uploader'
-require 'file_combiner'
-require 'alias_gen'
+require File.join File.dirname(__FILE__), '..', 'lib', 'uploader'
+require File.join File.dirname(__FILE__), '..', 'lib', 'file_combiner'
+require File.join File.dirname(__FILE__), '..', 'lib', 'alias_gen'
 require 'optparse'
 
 options = {}
