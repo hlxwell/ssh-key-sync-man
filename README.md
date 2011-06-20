@@ -45,9 +45,9 @@ Usage
 
 Generate alias file for everyone, for example:
 
-    alias myasics_app1="ssh app@host"
-    alias myasics_app2="ssh app@host"
-    alias myasics_db="ssh app@host"
-    alias myasics_staging="ssh app@host"
+    alias serverA_app1="ssh app@host"
+    alias serverB_app2="ssh app@host"
+    alias serverC_db="ssh app@host"
+    alias serverD_staging="ssh app@host"
 
 You can copy and paste into your .bashrc or .bash_profile
