@@ -1,6 +1,5 @@
 module SshKeyMan
   class PublicKeyCombiner
-
     def self.combine group
       puts "combining public keys ..."
 
@@ -11,7 +10,7 @@ module SshKeyMan
         f.write File.read(get_current_user_public_key_path) if get_current_user_public_key_path
         files = Dir[File.join(public_key_path, group, "*")]
 
-        raise "No Such a Group: #{group}" if files.size == 0
+        raise "No such a server group: #{group}" if files.size == 0
 
         files.each do |file|
           f.write File.read(file)
