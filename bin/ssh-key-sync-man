@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+
+require 'lib/uploader'
+require 'lib/file_combiner'
+require 'lib/alias_gen'
+require 'optparse'
+
+options = {}
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: deploy_sshkey [options]"
+
+  opts.on("-a", "--alias user", "Generate shell alias for specific user") do |user|
+    options[:alias_for_user] = user
+  end
+
+  opts.on("-g group", "--group group", "Server Group Name") do |group|
+    options[:group] = group
+  end
+end.parse!
+
+# check alias option
+if !(alias_for_user = options[:alias_for_user]).nil?
+  SshKeyMan::AliasGen.generate alias_for_user
+  exit
+end
+
+begin
+  # check group option
+  raise "please provide group name: deploy_sshkey myasics." if (group = options[:group]).nil?
+
+  SshKeyMan::PublicKeyCombiner.combine group
+  SshKeyMan::Uploader.upload_all_public_keys group
+  puts "Done!"
+rescue => e
+  puts "Got an error:"
+  puts e.to_s
+end
