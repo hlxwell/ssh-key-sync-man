@@ -1,8 +1,9 @@
 #!/usr/bin/env ruby
 
-require 'lib/uploader'
-require 'lib/file_combiner'
-require 'lib/alias_gen'
+$: << "./lib"
+require 'uploader'
+require 'file_combiner'
+require 'alias_gen'
 require 'optparse'
 
 options = {}
@@ -19,13 +20,13 @@ OptionParser.new do |opts|
   end
 end.parse!
 
-# check alias option
-if !(alias_for_user = options[:alias_for_user]).nil?
-  SshKeyMan::AliasGen.generate alias_for_user
-  exit
-end
-
 begin
+  # check alias option
+  if !(alias_for_user = options[:alias_for_user]).nil?
+    SshKeyMan::AliasGen.generate alias_for_user
+    exit
+  end
+
   # check group option
   raise "please provide group name: deploy_sshkey myasics." if (group = options[:group]).nil?
 
