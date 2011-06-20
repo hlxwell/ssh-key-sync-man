@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
     "lib/alias_gen.rb",
     "lib/file_combiner.rb",
     "lib/uploader.rb",
+    "ssh-key-sync-man.gemspec",
     "test/helper.rb",
     "test/test_ssh-key-sync-man.rb"
   ]
@@ -37,7 +38,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.5.0}
-  s.summary = %q{Manage all your servers' auto login ssh-keys. One-command-line adding or removing any ssh-key for all servers.}
+  s.summary = %q{TODO: one-line summary of your gem}
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
