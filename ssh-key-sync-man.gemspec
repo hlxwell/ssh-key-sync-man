@@ -4,15 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{ssh-key-sync-man}
+  s.name = "ssh-key-sync-man"
   s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Michael He"]
-  s.date = %q{2011-12-02}
-  s.default_executable = %q{ssh-key-sync-man}
-  s.description = %q{Manage all your servers' auto login ssh-keys. One-command-line adding or removing any ssh-key for all servers.}
-  s.email = %q{hlxwell@gmail.com}
+  s.date = "2011-12-02"
+  s.description = "Manage all your servers' auto login ssh-keys. One-command-line adding or removing any ssh-key for all servers."
+  s.email = "hlxwell@gmail.com"
   s.executables = ["ssh-key-sync-man"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -34,11 +33,11 @@ Gem::Specification.new do |s|
     "test/helper.rb",
     "test/test_ssh-key-sync-man.rb"
   ]
-  s.homepage = %q{http://github.com/hlxwell/ssh-key-sync-man}
+  s.homepage = "http://github.com/hlxwell/ssh-key-sync-man"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.6.2}
-  s.summary = %q{Manage all your servers' auto login ssh-keys. One-command-line adding or removing any ssh-key for all servers.}
+  s.rubygems_version = "1.8.10"
+  s.summary = "Manage all your servers' auto login ssh-keys. One-command-line adding or removing any ssh-key for all servers."
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
