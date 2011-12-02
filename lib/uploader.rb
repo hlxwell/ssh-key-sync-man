@@ -18,15 +18,16 @@ module SshKeyMan
       servers = YAML::load_file(server_list_path)['servers'][group]
       raise "No Server Group: #{group}" if servers.size == 0
       servers.each do |server_info|
-        upload! server_info["host"], server_info["user"], source, dest
+        upload! server_info["host"], server_info["port"]||"22", server_info["user"], source, dest
       end
     end
 
     # upload a file to a remote server
     #
-    def self.upload! host, user, source, dest
+    def self.upload! host, port, user, source, dest
       puts "coping file from #{source} to #{user}@#{host}:#{dest}"
-      `scp #{source} #{user}@#{host}:#{dest}`
+
+      `scp -P #{port} #{source} #{user}@#{host}:#{dest}`
       raise "upload failed" if $?.exitstatus != 0
     end
   end
