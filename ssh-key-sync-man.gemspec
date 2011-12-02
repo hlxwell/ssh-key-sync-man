@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{ssh-key-sync-man}
-  s.version = "0.1.5"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Michael He"]
-  s.date = %q{2011-06-20}
+  s.date = %q{2011-12-02}
   s.default_executable = %q{ssh-key-sync-man}
   s.description = %q{Manage all your servers' auto login ssh-keys. One-command-line adding or removing any ssh-key for all servers.}
   s.email = %q{hlxwell@gmail.com}
@@ -37,7 +37,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/hlxwell/ssh-key-sync-man}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.5.0}
+  s.rubygems_version = %q{1.6.2}
   s.summary = %q{Manage all your servers' auto login ssh-keys. One-command-line adding or removing any ssh-key for all servers.}
 
   if s.respond_to? :specification_version then
