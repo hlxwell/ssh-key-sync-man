@@ -15,7 +15,7 @@ module SshKeyMan
     #
     def self.upload_to_all_servers source, dest, group
       server_list_path = File.join(".", "server_list.yml")
-      servers = YAML::load_file(server_list_path)['servers'][group]
+      servers = YAML::load_file(server_list_path)[group]['servers']
       raise "No Server Group: #{group}" if servers.size == 0
       servers.each do |server_info|
         upload! server_info["host"], server_info["port"]||"22", server_info["user"], source, dest

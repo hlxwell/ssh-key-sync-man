@@ -9,33 +9,37 @@ Usage
 
 1. `gem install ssh-key-sync-man`
 
-2. Put all your team members' keys into one `available_public_keys` directory with the structure looks like:
+2. Put all your team members' keys into one `available_public_keys` directory 
 
-        available_public_keys/groupA/michael
-        available_public_keys/------/jason
-        available_public_keys/------/john
-        available_public_keys/groupB/rose
-        available_public_keys/------/ryan
+        available_public_keys/michael
+        available_public_keys/jason
+        available_public_keys/john
+        available_public_keys/rose
+        available_public_keys/ryan
 
 3. Add a `server_list.yml`, format like:
 
+      GroupA:
         servers:
-          groupA:
-            - host: xxx.com
-              user: app
-          groupB:
-            - host: aaa.com
-              user: app
-              alias: app_server
-            - host: aaa.com
-              user: db
-              alias: db_master
+          - host: xxx.com
+            user: app
+          - host: aaa.com
+            user: app
+            alias: app_server
+        users: [ jaon, ryan ]
+
+      GroupB
+        servers:
+          - host: aaa.com
+            user: db
+            alias: db_master
+        users: [ jaon, ryan, michael ]
 
     (You can puts `available_public_keys` and `server_list.yml` at github, them people can add files by themselves)
 
 4. ssh-key-sync-man -g groupA
 
-  This will deploy public keys in `available_public_keys/groupA` to groupA servers
+  This will deploy the users' public keys which defined in `server_list.yml` to groupA servers
 
 
 "alias" list -- linux shotcut command list auto generator
