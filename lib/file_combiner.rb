@@ -16,11 +16,11 @@ module SshKeyMan
         f.write File.read(get_current_user_public_key_path) if get_current_user_public_key_path
         files = []
         users.each do | user |
-          files = files + Dir[File.join(public_key_path, user)]
+          files << Dir[File.join(public_key_path, user)]
         end
 
         raise "Can't find key files of user #{users}" if files.size == 0
-                                        
+
         files.each do |file|
           f.write File.read(file)
         end
