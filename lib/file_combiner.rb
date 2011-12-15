@@ -1,10 +1,23 @@
 module SshKeyMan
   class PublicKeyCombiner
+    def self.combine_developer_public_keys
+      authorized_keys_path = File.join ".", "tmp", "authorized_keys"
+      public_key_path      = File.join(".", "config", "developer_public_keys")
+
+      File.open authorized_keys_path, "w" do |f|
+        f.write File.read(get_current_user_public_key_path) if get_current_user_public_key_path
+        files = Dir[File.join(public_key_path, '*')]
+        raise "Can't find key files of user #{users}" if files.size == 0
+        files.each do |file|
+          f.write File.read(file)
+        end
+      end
+    end
+
     def self.combine group
       puts "combining public keys ..."
 
       server_list_path = File.join(".", "server_list.yml")
-
       users = YAML::load_file(server_list_path)[group]['users']
 
       raise "No users are seted in #{group} config" if users.nil?
