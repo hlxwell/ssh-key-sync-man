@@ -19,6 +19,7 @@ Usage
 
 3. Add a `server_list.yml`, format like:
 
+```
       GroupA:
         servers:
           - host: xxx.com
@@ -34,6 +35,7 @@ Usage
             user: db
             alias: db_master
         users: [ jaon, ryan, michael ]
+```
 
     (You can puts `available_public_keys` and `server_list.yml` at github, them people can add files by themselves)
 
